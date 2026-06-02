@@ -10,8 +10,8 @@ from bs4 import BeautifulSoup
 BASE_URL = "https://www.moneydj.com/KMDJ/News/NewsRealList.aspx?a=MB010000"
 OUTPUT = Path("data/news.json")
 
-DAYS = 7
-MAX_PAGES = 12
+DAYS = 30
+MAX_PAGES = 50
 
 # Company universe: edit this list to add/remove companies.
 COMPANIES = [
