@@ -1,40 +1,45 @@
-# MoneyDJ AI Supply Chain News Dashboard
+# MoneyDJ Company Event News Monitor
 
-This is a GitHub Pages-ready static dashboard. It uses a GitHub Actions workflow to crawl MoneyDJ every 6 hours and writes the results into `data/news.json`.
-
-## Files
+This GitHub Pages dashboard shows MoneyDJ articles that match:
 
 ```text
-index.html
-data/news.json
+ANY company in COMPANIES
+AND
+ANY event keyword in EVENT_KEYWORDS
+```
+
+Example:
+
+```text
+台積電 + 海外投資
+廣達 + 海外設廠
+鴻海 + 墨西哥廠
+```
+
+## Edit companies or events
+
+Open:
+
+```text
 scripts/crawl_moneydj.py
-requirements.txt
-.github/workflows/crawl.yml
 ```
 
-## How to publish on GitHub Pages
+Edit these lists:
 
-1. Create a new GitHub repository.
-2. Upload all files in this folder.
-3. Go to **Settings → Actions → General**.
-4. Under **Workflow permissions**, choose **Read and write permissions**.
-5. Go to **Actions** and run **Crawl MoneyDJ AI Supply Chain News** manually once.
-6. Go to **Settings → Pages**.
-7. Under **Build and deployment**, choose:
-   - Source: **Deploy from a branch**
-   - Branch: **main**
-   - Folder: **/ root**
-8. Save.
-
-Your site will be available at:
-
-```text
-https://cocowu1020.github.io/crawl/
+```python
+COMPANIES = [...]
+EVENT_KEYWORDS = [...]
+TOPIC_KEYWORDS = [...]
 ```
 
-## Notes
+`COMPANIES` and `EVENT_KEYWORDS` are required for an article to appear.
 
-- GitHub Pages cannot run Python directly. The Python crawler runs inside GitHub Actions, commits `data/news.json`, and the website reads that static JSON file.
-- The default crawler window is the last 7 days.
-- The workflow runs every 6 hours and can also be run manually.
-- Please respect MoneyDJ's terms and avoid aggressive crawling.
+`TOPIC_KEYWORDS` only boosts relevance and displays tags.
+
+## GitHub setup
+
+1. Upload these files to the root of your repo.
+2. Enable GitHub Pages.
+3. Add the workflow file at `.github/workflows/crawl.yml`.
+4. In GitHub repo settings, set Actions workflow permissions to **Read and write permissions**.
+5. Run the crawler workflow manually once.

@@ -9,20 +9,49 @@ from bs4 import BeautifulSoup
 
 BASE_URL = "https://www.moneydj.com/KMDJ/News/NewsRealList.aspx?a=MB010000"
 OUTPUT = Path("data/news.json")
+
 DAYS = 7
 MAX_PAGES = 12
 
-AI_SUPPLY_CHAIN_KEYWORDS = [
+# Company universe: edit this list to add/remove companies.
+COMPANIES = [
+    "台積電", "聯發科", "廣達", "緯創", "緯穎",
+    "鴻海", "英業達", "和碩", "日月光", "欣興",
+    "南電", "金像電", "台光電", "雙鴻", "奇鋐",
+    "技嘉", "華碩", "仁寶", "神達", "台達電"
+]
+
+# Event keywords: article must contain at least one company AND at least one event keyword.
+EVENT_KEYWORDS = [
+    "海外投資",
+    "海外設廠",
+    "設廠",
+    "新廠",
+    "擴廠",
+    "投資",
+    "產能",
+    "資本支出",
+    "海外布局",
+    "美國廠",
+    "墨西哥廠",
+    "越南廠",
+    "泰國廠",
+    "馬來西亞廠",
+    "日本廠",
+    "歐洲廠"
+]
+
+# Optional topic keywords. These increase relevance score but are not required.
+TOPIC_KEYWORDS = [
     "AI", "人工智慧", "輝達", "NVIDIA", "伺服器", "AI伺服器", "半導體", "晶片",
     "GPU", "CPU", "HBM", "記憶體", "DRAM", "先進封裝", "CoWoS", "封測",
-    "台積電", "聯發科", "廣達", "緯創", "緯穎", "鴻海", "英業達", "和碩",
     "散熱", "液冷", "水冷", "電源", "電源供應器", "被動元件", "MLCC",
     "電感", "PCB", "ABF", "載板", "光通訊", "光模組", "交換器", "網通",
-    "資料中心", "電力", "儲能", "供應鏈", "瓶頸", "產能", "交期"
+    "資料中心", "電力", "儲能", "供應鏈", "瓶頸", "交期"
 ]
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; GitHub-Pages-AI-supply-chain-news-monitor/1.0)"
+    "User-Agent": "Mozilla/5.0 (compatible; GitHub-Pages-company-event-news-monitor/1.0)"
 }
 
 def now_taipei():
@@ -34,23 +63,18 @@ def parse_tw_date(mmdd, hhmm):
     hour, minute = map(int, hhmm.split(":"))
     dt = datetime(current.year, month, day, hour, minute, tzinfo=current.tzinfo)
 
-    # Handles year boundary if the crawler runs in early January.
     if dt > current + timedelta(days=7):
         dt = dt.replace(year=current.year - 1)
 
     return dt
 
-def score_text(text):
-    hits = []
-    score = 0
+def find_hits(text, keywords):
     lower = text.lower()
+    return sorted({kw for kw in keywords if kw.lower() in lower})
 
-    for kw in AI_SUPPLY_CHAIN_KEYWORDS:
-        if kw.lower() in lower:
-            hits.append(kw)
-            score += 1
-
-    return score, sorted(set(hits))
+def score_article(company_hits, event_hits, topic_hits):
+    # Required match gets a strong base score.
+    return 100 + len(company_hits) * 10 + len(event_hits) * 10 + len(topic_hits)
 
 def get(url):
     response = requests.get(url, headers=HEADERS, timeout=20)
@@ -130,17 +154,26 @@ def crawl():
                 continue
 
             body = article_body(item["url"])
-            score, hits = score_text(item["title"] + "\n" + body)
+            text = item["title"] + "\n" + body
 
-            if score <= 0:
+            company_hits = find_hits(text, COMPANIES)
+            event_hits = find_hits(text, EVENT_KEYWORDS)
+            topic_hits = find_hits(text, TOPIC_KEYWORDS)
+
+            # Main rule:
+            # include only if article has at least one company AND one event keyword.
+            if not company_hits or not event_hits:
                 continue
 
             results.append({
                 "title": item["title"],
                 "url": item["url"],
                 "published_at": item["published_at"].isoformat() if item["published_at"] else None,
-                "score": score,
-                "keywords": hits,
+                "score": score_article(company_hits, event_hits, topic_hits),
+                "companies": company_hits,
+                "events": event_hits,
+                "topics": topic_hits,
+                "keywords": company_hits + event_hits + topic_hits,
                 "snippet": body[:700],
             })
 
@@ -154,6 +187,10 @@ def crawl():
         "source": BASE_URL,
         "generated_at": current.isoformat(),
         "days": DAYS,
+        "rule": "company AND event keyword",
+        "companies": COMPANIES,
+        "event_keywords": EVENT_KEYWORDS,
+        "topic_keywords": TOPIC_KEYWORDS,
         "count": len(results),
         "results": results,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
