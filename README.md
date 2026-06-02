@@ -29,7 +29,7 @@ requirements.txt
 Your site will be available at:
 
 ```text
-https://YOUR_USERNAME.github.io/YOUR_REPOSITORY/
+https://cocowu1020.github.io/crawl/
 ```
 
 ## Notes
