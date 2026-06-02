@@ -1,4 +1,4 @@
-name: Crawl MoneyDJ AI Supply Chain News
+name: Crawl MoneyDJ Company Event News
 
 on:
   workflow_dispatch:
@@ -30,5 +30,5 @@ jobs:
       - name: Commit updated data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update MoneyDJ AI supply chain news"
+          commit_message: "Update MoneyDJ company event news"
           file_pattern: data/news.json
