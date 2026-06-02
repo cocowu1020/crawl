@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MoneyDJ AI Supply Chain News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --blue: #2563eb;
+      --pill: #e0ecff;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #0f172a);
+      color: white;
+      padding: 34px 22px;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 18px;
+    }
+    h1 { margin: 0 0 8px; }
+    .subtitle { opacity: .9; margin: 0; }
+    .toolbar, .card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.08);
+      margin: 18px 0;
+      padding: 18px;
+    }
+    .toolbar {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr 180px 150px;
+      align-items: center;
+    }
+    input, select {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .news-title {
+      margin: 0 0 8px;
+      font-size: 21px;
+      line-height: 1.35;
+    }
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .kw {
+      display: inline-block;
+      background: var(--pill);
+      border-radius: 999px;
+      padding: 4px 9px;
+      margin: 4px 4px 4px 0;
+      font-size: 12px;
+    }
+    .snippet {
+      white-space: pre-wrap;
+      line-height: 1.55;
+      color: #374151;
+    }
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 30px;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 24px 0 40px;
+    }
+    @media (max-width: 760px) {
+      .toolbar { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>MoneyDJ AI Supply Chain News</h1>
+    <p class="subtitle">Auto-updated by GitHub Actions from MoneyDJ 即時新聞.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="toolbar">
+    <input id="search" placeholder="Search title, keyword, company, snippet..." />
+    <select id="sort">
+      <option value="date">Newest first</option>
+      <option value="score">Highest relevance</option>
+    </select>
+    <select id="days">
+      <option value="7">Last 7 days</option>
+      <option value="3">Last 3 days</option>
+      <option value="1">Last 24 hours</option>
+      <option value="30">Last 30 days</option>
+    </select>
+  </section>
+
+  <section class="card">
+    <strong id="summary">Loading...</strong>
+    <div class="meta" id="updated"></div>
+  </section>
+
+  <section id="results"></section>
+</main>
+
+<footer class="wrap">
+  Source: <a href="https://www.moneydj.com/KMDJ/News/NewsRealList.aspx?a=MB010000" target="_blank" rel="noopener">MoneyDJ 即時新聞</a>.
+  This dashboard stores crawler output as static JSON for GitHub Pages.
+</footer>
+
+<script>
+let allItems = [];
+
+async function loadNews() {
+  try {
+    const response = await fetch("data/news.json?cache=" + Date.now());
+    const data = await response.json();
+    allItems = data.results || [];
+    document.getElementById("updated").textContent =
+      `Last crawler run: ${data.generated_at || "unknown"} · Source items matched: ${allItems.length}`;
+    render();
+  } catch (error) {
+    document.getElementById("summary").textContent = "Could not load data/news.json.";
+    document.getElementById("results").innerHTML =
+      `<div class="card empty">${escapeHtml(error.message)}</div>`;
+  }
+}
+
+function render() {
+  const query = document.getElementById("search").value.trim().toLowerCase();
+  const sort = document.getElementById("sort").value;
+  const days = Number(document.getElementById("days").value);
+  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
+
+  let items = allItems.filter(item => {
+    const published = item.published_at ? new Date(item.published_at).getTime() : 0;
+    const haystack = [
+      item.title || "",
+      item.snippet || "",
+      (item.keywords || []).join(" ")
+    ].join(" ").toLowerCase();
+
+    return published >= cutoff && (!query || haystack.includes(query));
+  });
+
+  items.sort((a, b) => {
+    if (sort === "score") {
+      return (b.score || 0) - (a.score || 0) || String(b.published_at).localeCompare(String(a.published_at));
+    }
+    return String(b.published_at).localeCompare(String(a.published_at));
+  });
+
+  document.getElementById("summary").textContent =
+    `${items.length} article${items.length === 1 ? "" : "s"} shown`;
+
+  const results = document.getElementById("results");
+
+  if (!items.length) {
+    results.innerHTML = `<div class="card empty">No matching articles found.</div>`;
+    return;
+  }
+
+  results.innerHTML = items.map(item => `
+    <article class="card">
+      <h2 class="news-title">
+        <a href="${item.url}" target="_blank" rel="noopener">${escapeHtml(item.title)}</a>
+      </h2>
+      <div class="meta">
+        ${formatDate(item.published_at)} · relevance score ${item.score || 0}
+      </div>
+      <div>
+        ${(item.keywords || []).map(k => `<span class="kw">${escapeHtml(k)}</span>`).join("")}
+      </div>
+      <p class="snippet">${escapeHtml(item.snippet || "")}</p>
+    </article>
+  `).join("");
+}
+
+function formatDate(value) {
+  if (!value) return "No date found";
+  const date = new Date(value);
+  return date.toLocaleString(undefined, {
+    year: "numeric", month: "short", day: "numeric",
+    hour: "2-digit", minute: "2-digit"
+  });
+}
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, s => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
+  }[s]));
+}
+
+document.getElementById("search").addEventListener("input", render);
+document.getElementById("sort").addEventListener("change", render);
+document.getElementById("days").addEventListener("change", render);
+loadNews();
+</script>
+</body>
+</html>
