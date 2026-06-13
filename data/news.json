@@ -1,6 +1,6 @@
 {
   "source": "https://www.moneydj.com/KMDJ/News/NewsRealList.aspx?a=MB010000",
-  "generated_at": "2026-06-13T21:59:12.813438+08:00",
+  "generated_at": "2026-06-14T03:24:59.267036+08:00",
   "days": 30,
   "rule": "company AND event keyword",
   "companies": [
@@ -1078,7 +1078,7 @@
       "title": "《DJ在線》RTX Spark催油門，PC廠有甜頭...",
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=02b318b5-461e-48d9-a0b6-c6d544ea2f48&c=MB010000",
       "published_at": "2026-06-05T13:25:00+08:00",
-      "score": 187,
+      "score": 188,
       "companies": [
         "仁寶",
         "和碩",
@@ -1098,7 +1098,8 @@
         "NVIDIA",
         "供應鏈",
         "晶片",
-        "記憶體"
+        "記憶體",
+        "資料中心"
       ],
       "keywords": [
         "仁寶",
@@ -1115,7 +1116,8 @@
         "NVIDIA",
         "供應鏈",
         "晶片",
-        "記憶體"
+        "記憶體",
+        "資料中心"
       ],
       "snippet": "MoneyDJ新聞 2026-06-05 13:25:10 張以忠 發佈\nNVIDIA近日推出RTX Spark平台，為Windows on Arm開啟一扇窗，有望加速Agentic AI滲透，市場期待將進一步擴大AI PC市場為PC產業注入活水。預期PC族群包括品牌廠微星(2377)、華碩(2357)，以及組裝廠包括廣達(2382)、緯創(3231)、英業達(2356)、仁寶(2324)、和碩(4938)等有望受惠。據供應鏈指出，首波RTX Spark產品在秋天上市後，第二波將有更多PC廠商加入，第二波銷售預計在明年第一季末展開。\nRTX Spark主打個人智慧代理應用，強調可在本地端執行語言模型與複雜AI任務，具供應鏈指出，其售價約落在4000至5000美元以上，明顯高於傳統消費型PC產品，鎖定專業級消費者。市場認為，RTX Spark有機會帶動PC產業鏈產品規格升級與ASP提升，為低迷多年的PC產業注入新的成長動能。\n市場人士指出，NVIDIA此次跨入ARM架構PC晶片市場，將Grace CPU、Blackwell GPU以及Unified Memory整合於單一平台中，挑戰既有由Intel與AMD主導多年的PC生態系。更重要的是，RTX Spark採用ARM架構搭配統一記憶體設計，其產品定位與技術路線與Apple Silicon驅動的MacBook生態相當接近，因此市場認為NVIDIA不只是切入Windows PC市場，更有意挑戰蘋果在高階筆電市場建立的地位。而NVIDIA此次結合AI運算能力與Windows生態系，希望在Agentic AI PC領域取得抗衡條件。\n市"
     },
