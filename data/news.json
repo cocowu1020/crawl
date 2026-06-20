@@ -1,6 +1,6 @@
 {
   "source": "https://www.moneydj.com/KMDJ/News/NewsRealList.aspx?a=MB010000",
-  "generated_at": "2026-06-20T22:02:46.650507+08:00",
+  "generated_at": "2026-06-21T03:25:40.807443+08:00",
   "days": 30,
   "rule": "company AND event keyword",
   "companies": [
@@ -82,7 +82,7 @@
     "瓶頸",
     "交期"
   ],
-  "count": 135,
+  "count": 136,
   "results": [
     {
       "title": "《台股盤後》電金權值領軍、收漲587點/創高；週K翻...",
@@ -784,9 +784,10 @@
       "title": "《DJ在線》漲價潮吹向連接器大廠，台廠跟進添底氣",
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=b1a2d301-4c78-4b18-b879-45e179234b93&c=MB010000",
       "published_at": "2026-06-15T11:16:00+08:00",
-      "score": 135,
+      "score": 145,
       "companies": [
-        "廣達"
+        "廣達",
+        "緯穎"
       ],
       "events": [
         "投資",
@@ -801,6 +802,7 @@
       ],
       "keywords": [
         "廣達",
+        "緯穎",
         "投資",
         "新廠",
         "AI",
@@ -3369,6 +3371,35 @@
       "snippet": "MoneyDJ新聞 2026-06-01 12:02:23 黃立安 發佈\n輝達(NVIDIA)執行長黃仁勳今(1)日於GTC Taipei發表主題演講，不僅再度強調台灣在全球AI產業鏈的重要地位，也進一步闡述Agentic AI（代理型AI）帶來的運算架構變革，並直言Vera Rubin(VR)是NVIDIA有史以來最具野心的計畫。\n黃仁勳開場即秀出台灣供應鏈夥伴名單並指出，NVIDIA生態系一路向上連結完整的台灣供應鏈，一路向下延伸至資料中心與終端使用者，而「一切都從這裡開始」，並盛讚台灣擁有全球最完整、最優秀的供應鏈生態系。\n談到AI發展趨勢時，黃仁勳表示，兩年前曾提出AI將從生成式AI逐步邁向Agentic AI，如今可以正式宣告「Agentic AI已經到來」。\n他指出，Agent是一種全新的解耦式（Disaggregated）與分散式（Distributed）運算模型，由大型語言模型（LLM）、控制框架（Harness）、工具與技能（Tools and Skills）以及執行環境（Runtime）所組成，各項元件分散運行於資料中心不同位置。若將模型視為大腦，控制框架就是身體，而工具與執行時則如同工作坊，透過多個系統協同合作完成任務。\n黃仁勳說明，大型語言模型負責理解環境、推理、規劃及執行任務，每當進行一次完整推理流程，都可能動用一整個Grace Blackwell NVLink 72機櫃運算資源；而當Agent呼叫各種工具時，則會大量運用CPU資源，包括編譯器、程式語言工具及各類加速運算平台。\n他認為，目前Agent仍屬於初階工具使用者，但未來將進化成高度成熟的數位工"
     },
     {
+      "title": "NVIDIA正式跨足PC市場 傳微軟Surface率先導...",
+      "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=f2d9e4bb-ad8a-4f5f-b61d-28a69072aeb2&c=MB010000",
+      "published_at": "2026-06-01T11:41:00+08:00",
+      "score": 125,
+      "companies": [
+        "技嘉"
+      ],
+      "events": [
+        "投資"
+      ],
+      "topics": [
+        "AI",
+        "CPU",
+        "NVIDIA",
+        "晶片",
+        "瓶頸"
+      ],
+      "keywords": [
+        "技嘉",
+        "投資",
+        "AI",
+        "CPU",
+        "NVIDIA",
+        "晶片",
+        "瓶頸"
+      ],
+      "snippet": "MoneyDJ新聞 2026-06-01 11:41:46 李彥瑾 發佈\nAI晶片龍頭NVIDIA（NVDA.US）加速進軍個人電腦（PC）市場，傳將攜手微軟（Microsoft）推出首批搭載NVIDIA處理器的Windows PC產品，能否撼動Intel、AMD及高通（Qualcomm）的主導地位備受市場關注。\n美媒《Axios》30日引述知情人士指出，NVIDIA全新開發的Arm架構PC處理器將於本週正式亮相，預計率先搭載於微軟自家Surface PC，並於台北國際電腦展（Computex）及Microsoft Build 開發者大會揭曉新品細節，後續也將陸續導入戴爾（Dell）等知名品牌。\n微軟近年積極推動「Windows on Arm」生態系，以更強的電池續航力作為賣點，但至今並未帶動明顯換機潮。相較之下，蘋果（Apple）自研晶片成功吸引果粉換機，今年3月推出配備最新M5系列晶片的MacBook，再度強化競爭優勢。\n路透社早在2023年曾報導，NVIDIA正將觸角伸向PC晶片、採用Arm架構，原因是蘋果Arm架構自製CPU在PC市場上異軍突起，促使微軟加速轉向Arm平台，因此找上原本有意收購Arm的NVIDIA，協助微軟突破Arm架構CPU的硬體瓶頸，為新一代Arm版Windows PC備戰。\n此外，Axios報導指出，微軟也將同步發表新一代AI軟體功能，讓AI代理（AI Agent）可在Windows PC本機環境執行任務，進一步提升AI PC的實用性與運算效率。\n（圖片來源：\nNVIDIA\n）\n＊編者按：本文僅供參考之用，並不構成要約、招攬或邀請、誘使、任何不論種"
+    },
+    {
       "title": "日本企業設備投資破紀錄、獲利大增；日經創史高",
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=c60e6616-125e-4ab1-8c65-4ee89ca89b98&c=MB010000",
       "published_at": "2026-06-01T09:01:00+08:00",
@@ -4069,8 +4100,9 @@
       "title": "記憶體飆漲 日本PC價格1個月漲逾3成；出貨量萎縮...",
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=ad0e05fa-9e10-47a3-a6de-f088e9d59fc8&c=MB010000",
       "published_at": "2026-05-27T06:57:00+08:00",
-      "score": 133,
+      "score": 143,
       "companies": [
+        "緯穎",
         "華碩",
         "鴻海"
       ],
@@ -4083,6 +4115,7 @@
         "記憶體"
       ],
       "keywords": [
+        "緯穎",
         "華碩",
         "鴻海",
         "投資",
