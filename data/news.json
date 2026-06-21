@@ -1,6 +1,6 @@
 {
   "source": "https://www.moneydj.com/KMDJ/News/NewsRealList.aspx?a=MB010000",
-  "generated_at": "2026-06-21T22:10:07.600942+08:00",
+  "generated_at": "2026-06-22T03:40:10.752042+08:00",
   "days": 30,
   "rule": "company AND event keyword",
   "companies": [
@@ -782,19 +782,20 @@
       "title": "《DJ在線》漲價潮吹向連接器大廠，台廠跟進添底氣",
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=b1a2d301-4c78-4b18-b879-45e179234b93&c=MB010000",
       "published_at": "2026-06-15T11:16:00+08:00",
-      "score": 145,
+      "score": 146,
       "companies": [
         "廣達",
         "緯穎"
       ],
       "events": [
         "投資",
-        "新廠"
+        "海外布局"
       ],
       "topics": [
         "AI",
         "AI伺服器",
         "伺服器",
+        "儲能",
         "散熱",
         "資料中心"
       ],
@@ -802,10 +803,11 @@
         "廣達",
         "緯穎",
         "投資",
-        "新廠",
+        "海外布局",
         "AI",
         "AI伺服器",
         "伺服器",
+        "儲能",
         "散熱",
         "資料中心"
       ],
@@ -2164,7 +2166,7 @@
       "title": "《DJ在線》台達電散熱續看年增逾50%，能見度達2...",
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=84ed9b62-5ce1-47a7-babe-a06dd9e43961&c=MB010000",
       "published_at": "2026-06-05T12:53:00+08:00",
-      "score": 169,
+      "score": 159,
       "companies": [
         "台積電",
         "台達電",
@@ -2172,7 +2174,6 @@
       ],
       "events": [
         "投資",
-        "新廠",
         "產能"
       ],
       "topics": [
@@ -2191,7 +2192,6 @@
         "台達電",
         "緯穎",
         "投資",
-        "新廠",
         "產能",
         "AI",
         "AI伺服器",
@@ -3868,13 +3868,12 @@
       "title": "AI PC銷售比重拉升至44% 惠普Q2財報報喜",
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=0611ca08-e4af-46fa-9f73-c0daa214cf2b&c=MB010000",
       "published_at": "2026-05-28T11:47:00+08:00",
-      "score": 146,
+      "score": 136,
       "companies": [
         "緯穎"
       ],
       "events": [
         "投資",
-        "新廠",
         "產能"
       ],
       "topics": [
@@ -3888,7 +3887,6 @@
       "keywords": [
         "緯穎",
         "投資",
-        "新廠",
         "產能",
         "AI",
         "AI伺服器",
