@@ -1,6 +1,6 @@
 {
   "source": "https://www.moneydj.com/KMDJ/News/NewsRealList.aspx?a=MB010000",
-  "generated_at": "2026-07-04T21:24:09.499083+08:00",
+  "generated_at": "2026-07-05T03:11:56.919785+08:00",
   "days": 30,
   "rule": "company AND event keyword",
   "companies": [
@@ -1026,7 +1026,7 @@
       "title": "《台股盤後》暴跌1683點、失守月線；全週下跌逾4%...",
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=ac9c3ba1-9f1d-4732-9d02-9d5f0b6f0e76&c=MB010000",
       "published_at": "2026-06-26T15:59:00+08:00",
-      "score": 196,
+      "score": 185,
       "companies": [
         "南電",
         "台光電",
@@ -1037,14 +1037,12 @@
         "聯發科"
       ],
       "events": [
-        "投資",
-        "產能"
+        "投資"
       ],
       "topics": [
         "ABF",
         "AI",
         "DRAM",
-        "MLCC",
         "半導體",
         "記憶體"
       ],
@@ -1057,11 +1055,9 @@
         "欣興",
         "聯發科",
         "投資",
-        "產能",
         "ABF",
         "AI",
         "DRAM",
-        "MLCC",
         "半導體",
         "記憶體"
       ],
