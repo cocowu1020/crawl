@@ -1,6 +1,6 @@
 {
   "source": "https://www.moneydj.com/KMDJ/News/NewsRealList.aspx?a=MB010000",
-  "generated_at": "2026-07-10T22:24:57.773455+08:00",
+  "generated_at": "2026-07-11T03:26:01.570591+08:00",
   "days": 30,
   "rule": "company AND event keyword",
   "companies": [
