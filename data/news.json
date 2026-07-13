@@ -1,6 +1,6 @@
 {
   "source": "https://www.moneydj.com/KMDJ/News/NewsRealList.aspx?a=MB010000",
-  "generated_at": "2026-07-13T22:32:25.922624+08:00",
+  "generated_at": "2026-07-14T03:22:20.406202+08:00",
   "days": 30,
   "rule": "company AND event keyword",
   "companies": [
@@ -3723,13 +3723,12 @@
       "title": "英特爾稱18A-P進風險試產 分析師：良率是關鍵",
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=2a71eba5-35e4-4b83-ab20-221cb9c51037&c=MB010000",
       "published_at": "2026-06-17T08:06:00+08:00",
-      "score": 147,
+      "score": 137,
       "companies": [
         "台積電"
       ],
       "events": [
         "投資",
-        "新廠",
         "產能"
       ],
       "topics": [
@@ -3744,7 +3743,6 @@
       "keywords": [
         "台積電",
         "投資",
-        "新廠",
         "產能",
         "AI",
         "CoWoS",
@@ -4154,8 +4152,9 @@
       "title": "AMD不只是CPU概念股 花旗：GPU商機遭低估",
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=94eacf78-8661-4667-870a-f4baf7969d2c&c=MB010000",
       "published_at": "2026-06-15T09:05:00+08:00",
-      "score": 127,
+      "score": 137,
       "companies": [
+        "仁寶",
         "台積電"
       ],
       "events": [
@@ -4171,6 +4170,7 @@
         "資料中心"
       ],
       "keywords": [
+        "仁寶",
         "台積電",
         "投資",
         "AI",
