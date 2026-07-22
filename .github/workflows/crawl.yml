@@ -1,9 +1,9 @@
 name: Crawl MoneyDJ Company Event News
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 */6 * * *"
+#on:
+ # workflow_dispatch:
+  #schedule:
+   # - cron: "0 */6 * * *"
 
 permissions:
   contents: write
